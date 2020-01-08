@@ -33,7 +33,7 @@ class TransactionList extends StatelessWidget {
           : ListView.builder(
               itemBuilder: (ctx, index) {
                 return Card(
-                  elevation: 5,
+                  elevation: 4,
                   margin: EdgeInsets.symmetric(
                     vertical: 8,
                     horizontal: 5,
@@ -56,6 +56,11 @@ class TransactionList extends StatelessWidget {
                     ),
                     subtitle: Text(
                       DateFormat.yMMMd().format(transactions[index].date),
+                    ),
+                    trailing: IconButton(
+                      icon: Icon(Icons.delete),
+                      color: Theme.of(context).errorColor,
+                      onPressed: () {},
                     ),
                   ),
                 );
