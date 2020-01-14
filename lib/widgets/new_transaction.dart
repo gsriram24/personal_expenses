@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -59,12 +62,16 @@ class _NewTransactionState extends State<NewTransaction> {
                 decoration: InputDecoration(labelText: 'Title'),
                 controller: _titleController,
                 onSubmitted: (_) => _submitData(),
+                autocorrect: true,
+                textCapitalization: TextCapitalization.sentences,
               ),
               TextField(
                 decoration: InputDecoration(labelText: 'Amount'),
                 controller: _amountController,
                 keyboardType: TextInputType.number,
                 onSubmitted: (_) => _submitData(),
+                autocorrect: true,
+                textCapitalization: TextCapitalization.sentences,
               ),
               Row(
                 children: <Widget>[
@@ -75,16 +82,27 @@ class _NewTransactionState extends State<NewTransaction> {
                           : 'Date: ${DateFormat.yMd().format(_selectedDate)}',
                     ),
                   ),
-                  FlatButton(
-                    child: Text(
-                      'Choose Date',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Theme.of(context).primaryColor,
-                      ),
-                    ),
-                    onPressed: _presetDatePicker,
-                  ),
+                  Platform.isIOS
+                      ? CupertinoButton(
+                          child: Text(
+                            'Choose Date',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Theme.of(context).primaryColor,
+                            ),
+                          ),
+                          onPressed: _presetDatePicker,
+                        )
+                      : FlatButton(
+                          child: Text(
+                            'Choose Date',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Theme.of(context).primaryColor,
+                            ),
+                          ),
+                          onPressed: _presetDatePicker,
+                        ),
                 ],
               ),
               RaisedButton(
