@@ -14,7 +14,7 @@ class TransactionList extends StatelessWidget {
         ? LayoutBuilder(builder: (ctx, constraints) {
             return Column(
               children: <Widget>[
-                Text(
+                const Text(
                   'No Transactions added yet!',
                   style: Theme.of(context).textTheme.title,
                 ),
@@ -61,7 +61,7 @@ class TransactionList extends StatelessWidget {
                   trailing: MediaQuery.of(context).size.width > 460
                       ? FlatButton.icon(
                           textColor: Theme.of(context).errorColor,
-                          label: Text('Delete'),
+                          label: const Text('Delete'),
                           icon: Icon(Icons.delete),
                           onPressed: () => deleteTx(transactions[index].id),
                         )
