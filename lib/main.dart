@@ -119,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   List<Widget> _buildLandscapeContent(
-      MediaQueryData mediaQuery, AppBar appBar, txList) {
+      MediaQueryData mediaQuery, appBar, txList) {
     return [
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -148,7 +148,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   List<Widget> _buildPortraitContent(
-      MediaQueryData mediaQuery, AppBar appBar, txList) {
+      MediaQueryData mediaQuery, appBar, txList) {
     return [
       Container(
         height: (mediaQuery.size.height -
