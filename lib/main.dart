@@ -161,7 +161,7 @@ class _MyHomePageState extends State<MyHomePage> {
     ];
   }
 
-  Widget _buildCupertinoContent() {
+  PreferredSizeWidget _buildCupertinoContent() {
     return CupertinoNavigationBar(
       middle: Text('Personal Expenses'),
       trailing: Row(
